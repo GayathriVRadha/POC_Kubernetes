@@ -1,0 +1,16 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: xrule
+  namespace: {{ .Release.Namespace }}
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: xrule
+subjects:
+  - kind: User
+    name: gayathrivradha2412@gmail.com
+  - kind: User
+    name: gayu.sugi@gmail.com
+  - kind: ServiceAccount
+    name: {{ template "testrbac.serviceAccountName" . }}
